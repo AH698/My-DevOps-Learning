@@ -1,17 +1,7 @@
-FROM python:3.8-slim
-
-WORKDIR /app
-
-COPY . .
-
-RUN apt-get update && apt-get install -y \
-    gcc \
-    python3-dev \
-    libmariadb-dev \
-    pkg-config
-
-RUN pip install flask mysqlclient
-
-EXPOSE 5002
-
-CMD ["python", "app.py"]
+FROM python:3.8-slim 
+WORKDIR /app_ccc
+COPY . . 
+RUN pip install flask 
+RUN pip install redis 
+EXPOSE 5005
+CMD ["python", "app_ccc.py"]

@@ -1,0 +1,16 @@
+version: '3.8' 
+services:
+  web:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5005:5005"
+    depends_on:
+      - redis
+  redis:
+    build:
+      context: .
+      dockerfile: Dockerfile.redis
+    ports:
+      - "6379:6379"
